@@ -1,0 +1,231 @@
+/* Global Styles */
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #2b2b2b;
+    min-height: 60px;  /* Ensure enough space for the navbar items */
+    padding: 0 20px;  /* Side padding for internal spacing */
+    position: fixed;
+    top: 0;
+    left: 0;  /* Ensure it's flush on the left */
+    width: 100%;  /* Ensure it occupies the full viewport width */
+    z-index: 1000;
+    display: flex;
+    align-items: center;  /* Vertically center navbar content */
+    justify-content: space-between;  /* Properly space elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    height: 60px;  /* Ensure uniform height */
+}
+
+/* Navbar UL Styles */
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;  /* Space between the items */
+    margin: 0;  /* Remove margin */
+    padding: 0;  /* Remove padding */
+    align-items: center;  /* Align the links properly */
+    flex-grow: 1;  /* Make sure it fills up available space */
+}
+
+/* Navbar Links */
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background-color: #f1c40f; /* Gold hover effect */
+    color: #2b2b2b; /* Contrast color for hover state */
+    transform: scale(1.05);
+}
+
+/* Mobile-specific Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    background-color: #f1c40f;
+    height: 3px;
+    width: 25px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #2b2b2b;
+        padding: 10px 20px;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        border-radius: 8px;
+        display: none;
+        width: 100%;  /* Make the dropdown menu full-width */
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .navbar li {
+        width: 100%;
+    }
+
+    .navbar a {
+        width: 100%;
+        text-align: left;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Section Styles */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#home {
+    background: linear-gradient(135deg, #1e1e1e, #2b2b2b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('Yash.jpeg') no-repeat fixed;
+    background-size: cover;
+    height: 100vh;  /* Fullscreen */
+}
+
+
+.hero h1 {
+    font-size: 3rem;
+    color: #f1c40f;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+#about {
+    background: linear-gradient(135deg, #34495e, #19191a);
+    padding: 80px 20px;
+}
+
+
+/* Projects and Lists */
+/* Section for Projects */
+.project-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  /* Creates a responsive grid */
+    gap: 20px;  /* Spacing between the grid items */
+    margin: 20px auto;
+    padding: 15px;
+    max-width: 1200px;
+    text-align: left;
+}
+
+/* Individual Project Styling */
+.project {
+    background-color: #2b2b2b;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-10px);  /* Hover effect for interactivity */
+}
+
+.project h3 {
+    color: #f1c40f;
+}
+
+.project p {
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+.project a {
+    color: #f1c40f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ul li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #343434;
+}
+/* Customize the size of icons */
+ul li i {
+    margin-right: 10px;
+    font-size: 1.2rem;  /* Adjust the size */
+}
+
+
+/* Certifications & Awards Section */
+#certifications-awards {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #2b2b2b;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    text-align: left;
+}
+
+#certifications-awards h2 {
+    color: #f1c40f;
+}
+
+.certifications,
+.awards {
+    margin-bottom: 20px;
+}
+
+.certifications h3,
+.awards h3 {
+    color: #f1c40f;
+}
+
+/* Footer */
+footer {
+    background-color: #2b2b2b;
+    padding: 20px 0;
+    text-align: center;
+    color: #eaeaea;
+    font-size: 0.9rem;
+}
