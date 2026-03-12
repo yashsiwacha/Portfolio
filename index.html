@@ -350,6 +350,7 @@
 		.journey-card,
 		.experience-card,
 		.profile-card,
+		.insight-card,
 		.philosophy-box {
 			transition: transform 0.3s ease, box-shadow 0.3s ease;
 		}
@@ -359,6 +360,7 @@
 		.journey-card:hover,
 		.experience-card:hover,
 		.profile-card:hover,
+		.insight-card:hover,
 		.philosophy-box:hover {
 			transform: translateY(-4px);
 			box-shadow: 0 16px 32px rgba(0, 0, 0, 0.24);
@@ -386,6 +388,75 @@
 			gap: 10px;
 			flex-wrap: wrap;
 			align-items: center;
+		}
+
+		.positioning-line {
+			margin-top: 14px;
+			font-size: 0.93rem;
+			font-weight: 700;
+			letter-spacing: 0.02em;
+			color: #cde6ef;
+			padding: 8px 12px;
+			border: 1px solid rgba(78, 201, 176, 0.18);
+			border-radius: 12px;
+			background: rgba(21, 27, 33, 0.5);
+			display: inline-block;
+		}
+
+		.project-spec {
+			margin-bottom: 12px;
+			padding: 10px 12px;
+			border-radius: 12px;
+			border: 1px solid rgba(78, 201, 176, 0.14);
+			background: rgba(22, 27, 33, 0.42);
+		}
+
+		.project-spec p {
+			margin-bottom: 6px;
+			font-size: 0.88rem;
+			line-height: 1.45;
+		}
+
+		.project-spec p:last-child {
+			margin-bottom: 0;
+		}
+
+		.project-spec strong {
+			color: #d8edf6;
+		}
+
+		.insights-grid {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 14px;
+		}
+
+		.insight-card {
+			border: 1px solid var(--line);
+			border-radius: var(--radius);
+			background: var(--surface);
+			box-shadow: var(--shadow);
+			padding: 20px;
+		}
+
+		.insight-card h3 {
+			font-size: 1.06rem;
+			margin-bottom: 8px;
+		}
+
+		.insight-card p {
+			color: var(--muted);
+			font-size: 0.94rem;
+		}
+
+		.insight-list {
+			margin-top: 10px;
+			padding-left: 18px;
+			color: var(--muted);
+		}
+
+		.insight-list li + li {
+			margin-top: 6px;
 		}
 
 		.details-btn {
@@ -1034,7 +1105,8 @@
 
 			.projects-grid,
 			.experience-grid,
-			.profiles-grid {
+			.profiles-grid,
+			.insights-grid {
 				grid-template-columns: repeat(2, minmax(0, 1fr));
 			}
 
@@ -1052,6 +1124,7 @@
 			.projects-grid,
 			.experience-grid,
 			.profiles-grid,
+			.insights-grid,
 			.philosophy-list {
 				grid-template-columns: 1fr;
 			}
@@ -1108,6 +1181,12 @@
 
 			.badge {
 				font-size: 0.8rem;
+			}
+
+			.positioning-line {
+				font-size: 0.82rem;
+				width: 100%;
+				text-align: center;
 			}
 
 			.hero-card,
@@ -1216,13 +1295,14 @@
 	<main class="wrap" id="home">
 		<section class="hero">
 			<div class="fade-up">
-				<span class="badge"><span class="dot"></span> Open to Work • Software Engineer • Backend, API, and AI-Product Development</span>
-				<h1>Backend-focused Software Engineer<br />ready to ship production-quality features.</h1>
+				<span class="badge"><span class="dot"></span> Open to Work • Backend Engineer • Java and Spring Boot Track</span>
+				<h1>Backend Engineer focused on building scalable APIs,<br />distributed-system thinking, and data-driven applications.</h1>
 				<p>
 					I am Yash Siwach, a software engineer who builds reliable backend flows,
 					clean API layers, and practical AI-enabled features. I bring strong DSA discipline,
 					real project ownership, and a maintainability-first mindset suited for fast-moving product teams.
 				</p>
+				<p class="positioning-line">Java | Spring Boot | System Design | ML Projects | Backend Roles</p>
 				<div class="actions">
 					<a class="btn btn-primary" href="#projects">View Projects</a>
 					<a class="btn btn-ghost" href="#contact">Contact Me</a>
@@ -1421,6 +1501,40 @@
 			</div>
 		</section>
 
+		<section id="github-proof">
+			<h2 class="section-title fade-up">GitHub Activity Proof</h2>
+			<div class="insights-grid">
+				<article class="insight-card fade-up delay-1">
+					<h3>Repository Activity</h3>
+					<p>12 public repositories with consistent project updates, experiments, and backend learning implementations.</p>
+					<ul class="insight-list">
+						<li>Portfolio projects and backend prototypes</li>
+						<li>Learning-focused repositories with practical code</li>
+						<li>Visible implementation progression over time</li>
+					</ul>
+				</article>
+				<article class="insight-card fade-up delay-2">
+					<h3>Primary Languages</h3>
+					<p>Strong coding activity across backend and problem-solving stacks.</p>
+					<ul class="insight-list">
+						<li>Java</li>
+						<li>Python</li>
+						<li>C++</li>
+						<li>HTML and CSS</li>
+					</ul>
+				</article>
+				<article class="insight-card fade-up delay-3">
+					<h3>Open Profile</h3>
+					<p>Recruiters can directly verify consistency, coding style, and project ownership.</p>
+					<ul class="insight-list">
+						<li>Active GitHub profile</li>
+						<li>Project source code available</li>
+						<li>Clear growth from DSA to backend systems</li>
+					</ul>
+				</article>
+			</div>
+		</section>
+
 		<section id="experience">
 				<h2 class="section-title fade-up">Experience & Hiring Highlights</h2>
 			<div class="experience-grid">
@@ -1460,6 +1574,10 @@
 						<span>NLP</span>
 						<span>AI Assistant</span>
 					</div>
+					<div class="project-spec">
+						<p><strong>Architecture:</strong> Client -> API Layer -> NLP Processing -> Response Orchestrator</p>
+						<p><strong>Challenge Solved:</strong> Structured modular components to support concurrent user interactions and fast iteration.</p>
+					</div>
 					<div class="project-actions">
 						<a href="https://github.com/yashsiwacha/YAAN" target="_blank" rel="noopener noreferrer">View on GitHub</a>
 						<button class="details-btn" type="button" data-project="yaan">Details</button>
@@ -1476,6 +1594,10 @@
 						<span>HTML</span>
 						<span>Web App</span>
 						<span>System Design</span>
+					</div>
+					<div class="project-spec">
+						<p><strong>Architecture:</strong> User Interface -> Bid Engine -> Listing State Manager -> Data Persistence</p>
+						<p><strong>Challenge Solved:</strong> Controlled bid-state transitions to avoid inconsistent auction outcomes.</p>
 					</div>
 					<div class="project-actions">
 						<a href="https://github.com/yashsiwacha/Auction-System" target="_blank" rel="noopener noreferrer">View on GitHub</a>
@@ -1494,6 +1616,10 @@
 						<span>ML Concepts</span>
 						<span>Wellness AI</span>
 					</div>
+					<div class="project-spec">
+						<p><strong>Architecture:</strong> Data Ingestion -> Feature Processing -> Risk Scoring Model -> Alert Output</p>
+						<p><strong>Challenge Solved:</strong> Converted noisy behavioral signals into interpretable warning indicators.</p>
+					</div>
 					<div class="project-actions">
 						<a href="https://github.com/yashsiwacha/Stress-Burnout-Warning" target="_blank" rel="noopener noreferrer">View on GitHub</a>
 						<button class="details-btn" type="button" data-project="stress">Details</button>
@@ -1511,10 +1637,79 @@
 						<span>Detection</span>
 						<span>IoT/ML Ideas</span>
 					</div>
+					<div class="project-spec">
+						<p><strong>Architecture:</strong> Sensor Input -> Signal Normalization -> Threshold Logic -> Monitoring Dashboard</p>
+						<p><strong>Challenge Solved:</strong> Improved reliability by reducing false detections from unstable inputs.</p>
+					</div>
 					<div class="project-actions">
 						<a href="https://github.com/yashsiwacha/moisture-detection" target="_blank" rel="noopener noreferrer">View on GitHub</a>
 						<button class="details-btn" type="button" data-project="moisture">Details</button>
 					</div>
+				</article>
+			</div>
+		</section>
+
+		<section id="system-design">
+			<h2 class="section-title fade-up">System Design Explorations</h2>
+			<div class="insights-grid">
+				<article class="insight-card fade-up delay-1">
+					<h3>URL Shortener</h3>
+					<p>Designed a scalable short-link flow with unique key generation, redirect routing, and caching-first lookup strategy.</p>
+					<ul class="insight-list">
+						<li>API gateway and redirect service</li>
+						<li>Key generation and collision strategy</li>
+						<li>Cache before database reads</li>
+					</ul>
+				</article>
+				<article class="insight-card fade-up delay-2">
+					<h3>Real-time Chat System</h3>
+					<p>Explored concurrent chat session design with persistent connections, message routing, and online presence management.</p>
+					<ul class="insight-list">
+						<li>WebSocket connection handling</li>
+						<li>Message queue style routing model</li>
+						<li>Session and presence tracking</li>
+					</ul>
+				</article>
+				<article class="insight-card fade-up delay-3">
+					<h3>Short Video Feed Architecture</h3>
+					<p>Studied feed generation patterns inspired by large-scale short-video systems and ranking pipelines.</p>
+					<ul class="insight-list">
+						<li>Feed fan-out tradeoff analysis</li>
+						<li>Ranking and recommendation stage</li>
+						<li>Latency and throughput considerations</li>
+					</ul>
+				</article>
+			</div>
+		</section>
+
+		<section id="currently-learning">
+			<h2 class="section-title fade-up">Currently Learning</h2>
+			<div class="panel fade-up">
+				<div class="tags">
+					<span class="tag">Distributed Systems</span>
+					<span class="tag">System Design Interviews</span>
+					<span class="tag">Kafka Fundamentals</span>
+					<span class="tag">Caching Strategies</span>
+					<span class="tag">Scalable API Design</span>
+					<span class="tag">Performance Optimization</span>
+				</div>
+			</div>
+		</section>
+
+		<section id="engineering-notes">
+			<h2 class="section-title fade-up">Engineering Notes</h2>
+			<div class="insights-grid">
+				<article class="insight-card fade-up delay-1">
+					<h3>How Redis reduces latency in distributed systems</h3>
+					<p>Planned article on cache-first patterns, cache invalidation choices, and real backend latency impact.</p>
+				</article>
+				<article class="insight-card fade-up delay-2">
+					<h3>How WebSocket works in backend APIs</h3>
+					<p>Planned deep dive on persistent connections, event flow, scaling concerns, and practical implementation tips.</p>
+				</article>
+				<article class="insight-card fade-up delay-3">
+					<h3>What happens when an HTTP request hits a server</h3>
+					<p>Planned breakdown from DNS and load balancer routing to application processing and database response cycles.</p>
 				</article>
 			</div>
 		</section>
@@ -1542,6 +1737,8 @@
 			<button id="modalClose" class="modal-close" type="button" aria-label="Close details">X</button>
 			<h3 id="modalTitle"></h3>
 			<p id="modalSummary"></p>
+			<h4>Architecture</h4>
+			<ul id="modalArchitecture"></ul>
 			<h4>Key Features</h4>
 			<ul id="modalFeatures"></ul>
 			<h4>Challenges Solved</h4>
@@ -1565,6 +1762,7 @@
 		const detailsButtons = document.querySelectorAll(".details-btn");
 		const modalTitle = document.getElementById("modalTitle");
 		const modalSummary = document.getElementById("modalSummary");
+		const modalArchitecture = document.getElementById("modalArchitecture");
 		const modalFeatures = document.getElementById("modalFeatures");
 		const modalChallenges = document.getElementById("modalChallenges");
 		const modalOutcome = document.getElementById("modalOutcome");
@@ -1580,6 +1778,11 @@
 			yaan: {
 				title: "YAAN",
 				summary: "AI assistant prototype with a modular backend built for faster iteration and maintainable feature growth.",
+				architecture: [
+					"Client requests handled through an API layer",
+					"Processing pipeline for NLP-oriented workflows",
+					"Response orchestration with modular components"
+				],
 				features: [
 					"Python backend with clear module boundaries",
 					"NLP-oriented interaction pipeline",
@@ -1594,6 +1797,11 @@
 			auction: {
 				title: "Online Auction System",
 				summary: "Transaction-oriented auction platform focused on consistent bid-state handling and reliable user workflows.",
+				architecture: [
+					"Front-end interaction layer for listings and bids",
+					"Bid engine to enforce state transitions",
+					"Persistence layer for listing and transaction states"
+				],
 				features: [
 					"Listing lifecycle and bid interaction modeling",
 					"Structured user flows for auction participation",
@@ -1608,6 +1816,11 @@
 			stress: {
 				title: "Stress Warning System",
 				summary: "Predictive wellness prototype that estimates stress risk from behavioral signals with interpretable outputs.",
+				architecture: [
+					"Data ingestion from behavioral and contextual inputs",
+					"Feature processing and model scoring layer",
+					"Output stage for interpretable alert insights"
+				],
 				features: [
 					"Data exploration and warning-signal engineering",
 					"Prediction pipeline with explainable outcome framing",
@@ -1622,6 +1835,11 @@
 			moisture: {
 				title: "Moisture Detection",
 				summary: "Data and sensing prototype for reliable moisture trend detection and monitoring-oriented decisions.",
+				architecture: [
+					"Signal input and normalization flow",
+					"Threshold-based detection decision layer",
+					"Monitoring output for field-ready insights"
+				],
 				features: [
 					"Signal processing pipeline for moisture-related inputs",
 					"Threshold and detection logic for actionable outputs",
@@ -1651,6 +1869,7 @@
 			}
 			modalTitle.textContent = detail.title;
 			modalSummary.textContent = detail.summary;
+			renderList(modalArchitecture, detail.architecture || []);
 			renderList(modalFeatures, detail.features);
 			renderList(modalChallenges, detail.challenges);
 			modalOutcome.textContent = detail.outcome;
