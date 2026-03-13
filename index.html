@@ -1124,7 +1124,7 @@
 
 			.journey-track::before,
 			.journey-track::after {
-				left: 24px;
+				left: 32px;
 				transform: translateX(0);
 			}
 
@@ -1140,7 +1140,7 @@
 
 			.journey-step {
 				grid-template-columns: 64px minmax(0, 1fr);
-				gap: 12px;
+				gap: 14px;
 				margin-bottom: 14px;
 			}
 
@@ -1163,6 +1163,9 @@
 				grid-column: 1;
 				width: 48px;
 				height: 48px;
+				justify-self: center;
+				align-self: start;
+				margin-top: 2px;
 			}
 
 			.journey-node::before {
@@ -1337,11 +1340,18 @@
 
 			.journey-step {
 				grid-template-columns: 54px minmax(0, 1fr);
+				gap: 12px;
+			}
+
+			.journey-track::before,
+			.journey-track::after {
+				left: 27px;
 			}
 
 			.journey-step .journey-node {
 				width: 42px;
 				height: 42px;
+				margin-top: 1px;
 			}
 
 			.journey-node::after {
