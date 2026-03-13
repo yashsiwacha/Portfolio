@@ -193,6 +193,15 @@
 			font-size: clamp(2rem, 4.8vw, 4rem);
 			letter-spacing: -0.03em;
 			margin-bottom: 14px;
+			text-wrap: balance;
+		}
+
+		.headline-mark {
+			display: inline;
+			padding: 0 8px 2px;
+			border-radius: 10px;
+			background: linear-gradient(120deg, rgba(12, 122, 106, 0.2), rgba(255, 107, 44, 0.24));
+			box-shadow: inset 0 -2px 0 rgba(12, 122, 106, 0.38);
 		}
 
 		.hero p {
@@ -1372,7 +1381,7 @@
 		<section class="hero">
 			<div class="fade-up">
 				<span class="badge"><span class="dot"></span> Open to Work • Backend Engineer • Java and Spring Boot Track</span>
-				<h1>Backend Engineer focused on building scalable APIs,<br />distributed-system thinking, and data-driven applications.</h1>
+				<h1><span class="headline-mark">Backend Engineer</span> focused on building scalable APIs,<br />distributed-system thinking, and data-driven applications.</h1>
 				<p>
 					I am Yash Siwach, a software engineer who builds reliable backend flows,
 					clean API layers, and practical AI-enabled features. I bring strong DSA discipline,
@@ -1510,7 +1519,7 @@
 								<span class="journey-chip">FastAPI</span>
 								<span class="journey-chip">REST APIs</span>
 								<span class="journey-chip">WebSockets</span>
-								<span class="journey-chip">System Design</span>
+								<span class="journey-chip">API Design Thinking</span>
 							</div>
 						</article>
 					</div>
@@ -1726,33 +1735,33 @@
 		</section>
 
 		<section id="system-design">
-			<h2 class="section-title fade-up">System Design Explorations</h2>
+			<h2 class="section-title fade-up">System Design Learning Path (In Progress)</h2>
 			<div class="insights-grid">
 				<article class="insight-card fade-up delay-1">
 					<h3>URL Shortener</h3>
-					<p>Designed a scalable short-link flow with unique key generation, redirect routing, and caching-first lookup strategy.</p>
+					<p>Planned practice topic: understand a short-link flow, key generation approach, and cache-first read patterns.</p>
 					<ul class="insight-list">
-						<li>API gateway and redirect service</li>
-						<li>Key generation and collision strategy</li>
-						<li>Cache before database reads</li>
+						<li>Learn API gateway and redirect service basics</li>
+						<li>Study key generation and collision handling</li>
+						<li>Practice cache-before-database reasoning</li>
 					</ul>
 				</article>
 				<article class="insight-card fade-up delay-2">
 					<h3>Real-time Chat System</h3>
-					<p>Explored concurrent chat session design with persistent connections, message routing, and online presence management.</p>
+					<p>Planned practice topic: learn persistent connections, message flow, and presence handling in chat backends.</p>
 					<ul class="insight-list">
-						<li>WebSocket connection handling</li>
-						<li>Message queue style routing model</li>
-						<li>Session and presence tracking</li>
+						<li>Understand WebSocket connection lifecycle</li>
+						<li>Learn queue-style message routing options</li>
+						<li>Practice session and presence modeling</li>
 					</ul>
 				</article>
 				<article class="insight-card fade-up delay-3">
 					<h3>Short Video Feed Architecture</h3>
-					<p>Studied feed generation patterns inspired by large-scale short-video systems and ranking pipelines.</p>
+					<p>Planned practice topic: understand feed generation tradeoffs and the basics of ranking pipeline stages.</p>
 					<ul class="insight-list">
-						<li>Feed fan-out tradeoff analysis</li>
-						<li>Ranking and recommendation stage</li>
-						<li>Latency and throughput considerations</li>
+						<li>Learn fan-out strategies and tradeoffs</li>
+						<li>Study ranking and recommendation building blocks</li>
+						<li>Track latency and throughput constraints</li>
 					</ul>
 				</article>
 			</div>
