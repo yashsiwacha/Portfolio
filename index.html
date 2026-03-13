@@ -323,6 +323,29 @@
 			margin-top: 14px;
 		}
 
+		.skills-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 14px;
+			margin-top: 14px;
+		}
+
+		.skill-group {
+			border: 1px solid var(--line);
+			border-radius: 14px;
+			padding: 14px;
+			background: var(--surface);
+		}
+
+		.skill-group h3 {
+			font-size: 0.96rem;
+			margin-bottom: 10px;
+		}
+
+		.skill-group .tags {
+			margin-top: 0;
+		}
+
 		.tag {
 			border: 1px solid var(--line);
 			border-radius: 999px;
@@ -1202,7 +1225,8 @@
 			.projects-grid,
 			.experience-grid,
 			.profiles-grid,
-			.insights-grid {
+			.insights-grid,
+			.skills-grid {
 				grid-template-columns: repeat(2, minmax(0, 1fr));
 			}
 
@@ -1221,7 +1245,8 @@
 			.experience-grid,
 			.profiles-grid,
 			.insights-grid,
-			.philosophy-list {
+			.philosophy-list,
+			.skills-grid {
 				grid-template-columns: 1fr;
 			}
 
@@ -1398,20 +1423,20 @@
 	<main class="wrap" id="home">
 		<section class="hero">
 			<div class="fade-up">
-				<span class="badge"><span class="dot"></span> Open to Work • Backend Engineer • Java and Spring Boot Track</span>
-				<h1><span class="headline-mark">Backend Engineer</span> focused on building scalable APIs,<br />distributed-system thinking, and data-driven applications.</h1>
+				<span class="badge"><span class="dot"></span> Open to Work • Backend Developer • Java • Spring Boot • API-First Systems</span>
+				<h1><span class="headline-mark">Yash Siwach</span><br />Backend Developer building Java, Spring Boot, and API-driven applications.</h1>
 				<p>
-					I am Yash Siwach, a software engineer who builds reliable backend flows,
-					clean API layers, and practical AI-enabled features. I bring strong DSA discipline,
-					real project ownership, and a maintainability-first mindset suited for fast-moving product teams.
+					I build backend systems, clean API layers, and data-driven applications with a strong focus on maintainability.
+					Right now I am growing deeper in system design, concurrency, and scalable backend architecture while shipping practical projects.
 				</p>
-				<p class="positioning-line">Java | Spring Boot | System Design | ML Projects | Backend Roles</p>
+				<p class="positioning-line">Java | Spring Boot | REST APIs | SQL | Concurrency Learning | Backend Roles</p>
 				<div class="actions">
 					<a class="btn btn-primary" href="#projects">View Projects</a>
 					<a class="btn btn-ghost" href="#contact">Contact Me</a>
 				</div>
 				<div class="actions-secondary">
 					<a class="btn btn-brand" href="https://github.com/yashsiwacha" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+					<a class="btn btn-ghost" href="https://www.linkedin.com/in/yashsiwacha/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 					<a class="btn btn-accent" href="YashResume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
 				</div>
 			</div>
@@ -1443,33 +1468,53 @@
 			<article class="panel fade-up delay-1">
 				<h2 class="section-title">Professional Summary</h2>
 				<p>
-					Early-career software engineer with hands-on experience in backend design,
-					API-centric development, and AI-driven prototypes. Known for structured thinking,
-					clean implementation, and consistent execution across learning and delivery-focused projects.
-					Comfortable with REST APIs, OOP, SQL, Docker, Git workflows, and testing basics,
-					with active focus on CI/CD fundamentals and scalable engineering practices.
-					Actively looking to contribute as a Software Engineer where reliability, speed, and maintainability matter.
+					Early-career backend developer with hands-on experience building API-focused applications,
+					modular services, and practical AI-driven prototypes. Strongest in structured implementation,
+					clean code, and reliable execution across project work and engineering learning.
+					Comfortable with Java, Spring Boot, REST APIs, SQL, Docker, Git workflows, and core CS fundamentals,
+					with active focus on concurrency, scalable architecture, and backend engineering depth.
 				</p>
 			</article>
 
 			<article class="panel fade-up delay-2">
 				<h2 class="section-title">Core Skills</h2>
-				<div class="tags">
-					<span class="tag">Java</span>
-					<span class="tag">C++</span>
-					<span class="tag">Python</span>
-					<span class="tag">OOP</span>
-					<span class="tag">API Design</span>
-					<span class="tag">AI Prototyping</span>
-					<span class="tag">Machine Learning Basics</span>
-					<span class="tag">Spring Boot</span>
-					<span class="tag">REST APIs</span>
-					<span class="tag">SQL</span>
-					<span class="tag">Testing Basics</span>
-					<span class="tag">CI/CD Basics</span>
-					<span class="tag">Postman</span>
-					<span class="tag">Git & GitHub</span>
-					<span class="tag">Docker</span>
+				<div class="skills-grid">
+					<div class="skill-group">
+						<h3>Languages</h3>
+						<div class="tags">
+							<span class="tag">Java</span>
+							<span class="tag">C++</span>
+							<span class="tag">Python</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h3>Backend</h3>
+						<div class="tags">
+							<span class="tag">Spring Boot</span>
+							<span class="tag">REST APIs</span>
+							<span class="tag">API Design</span>
+							<span class="tag">SQL</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h3>Tools</h3>
+						<div class="tags">
+							<span class="tag">Git & GitHub</span>
+							<span class="tag">Docker</span>
+							<span class="tag">Postman</span>
+							<span class="tag">CI/CD Basics</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h3>Concepts</h3>
+						<div class="tags">
+							<span class="tag">OOP</span>
+							<span class="tag">Data Structures</span>
+							<span class="tag">System Design Learning</span>
+							<span class="tag">Testing Basics</span>
+							<span class="tag">AI Prototyping</span>
+						</div>
+					</div>
 				</div>
 			</article>
 		</section>
@@ -1669,17 +1714,20 @@
 				<article class="project fade-up delay-1">
 					<h3>YAAN</h3>
 					<p>
-						Built a modular AI assistant backend in Python, enabling faster feature iteration,
-						clean service layering, and smoother experimentation for NLP-driven capabilities.
+						Built a modular assistant backend that emphasized clean service boundaries,
+						faster feature iteration, and API-oriented execution for NLP-driven workflows.
 					</p>
 					<div class="project-tech">
 						<span>Python</span>
+						<span>Backend Services</span>
 						<span>NLP</span>
 						<span>AI Assistant</span>
 					</div>
 					<div class="project-spec">
+						<p><strong>Tech Stack:</strong> Python, modular services, NLP workflow components</p>
 						<p><strong>Architecture:</strong> Client -> API Layer -> NLP Processing -> Response Orchestrator</p>
-						<p><strong>Challenge Solved:</strong> Structured modular components to support concurrent user interactions and fast iteration.</p>
+						<p><strong>Key Challenge:</strong> Structured modular components to keep feature growth manageable while supporting concurrent user interactions.</p>
+						<p><strong>Outcome:</strong> Improved iteration speed and made the backend easier to extend without tightly coupled changes.</p>
 					</div>
 					<div class="project-actions">
 						<a href="https://github.com/yashsiwacha/YAAN" target="_blank" rel="noopener noreferrer">View on GitHub</a>
@@ -1690,17 +1738,20 @@
 				<article class="project fade-up delay-2">
 					<h3>Online Auction System</h3>
 					<p>
-						Developed a transaction-oriented auction platform with clear listing lifecycle,
-						predictable bidding flows, and robust state handling for core user actions.
+						Developed a transaction-oriented auction workflow with clear state transitions,
+						predictable bid handling, and stronger thinking around user-driven system behavior.
 					</p>
 					<div class="project-tech">
 						<span>HTML</span>
+						<span>State Management</span>
 						<span>Web App</span>
-						<span>System Design</span>
+						<span>Workflow Design</span>
 					</div>
 					<div class="project-spec">
+						<p><strong>Tech Stack:</strong> Frontend workflow design, bid logic, listing state handling</p>
 						<p><strong>Architecture:</strong> User Interface -> Bid Engine -> Listing State Manager -> Data Persistence</p>
-						<p><strong>Challenge Solved:</strong> Controlled bid-state transitions to avoid inconsistent auction outcomes.</p>
+						<p><strong>Key Challenge:</strong> Controlled bid-state transitions to avoid inconsistent auction outcomes across repeated user actions.</p>
+						<p><strong>Outcome:</strong> Produced a clearer event flow for bidding and improved confidence in state-driven business logic.</p>
 					</div>
 					<div class="project-actions">
 						<a href="https://github.com/yashsiwacha/Auction-System" target="_blank" rel="noopener noreferrer">View on GitHub</a>
@@ -1711,17 +1762,20 @@
 				<article class="project fade-up delay-3">
 					<h3>Stress Warning System</h3>
 					<p>
-						Created a data-driven early warning model that converts behavioral signals
-						into interpretable risk insights for proactive stress monitoring.
+						Created a data-driven warning pipeline that transforms behavioral signals
+						into interpretable risk indicators for early stress monitoring.
 					</p>
 					<div class="project-tech">
 						<span>Python</span>
+						<span>Data Pipeline</span>
 						<span>ML Concepts</span>
 						<span>Wellness AI</span>
 					</div>
 					<div class="project-spec">
+						<p><strong>Tech Stack:</strong> Python, data preprocessing, scoring logic, alert-oriented output</p>
 						<p><strong>Architecture:</strong> Data Ingestion -> Feature Processing -> Risk Scoring Model -> Alert Output</p>
-						<p><strong>Challenge Solved:</strong> Converted noisy behavioral signals into interpretable warning indicators.</p>
+						<p><strong>Key Challenge:</strong> Converted noisy behavioral signals into interpretable warning indicators without losing practical readability.</p>
+						<p><strong>Outcome:</strong> Strengthened applied ML thinking by turning raw inputs into clearer, decision-friendly outputs.</p>
 					</div>
 					<div class="project-actions">
 						<a href="https://github.com/yashsiwacha/Stress-Burnout-Warning" target="_blank" rel="noopener noreferrer">View on GitHub</a>
@@ -1732,17 +1786,20 @@
 				<article class="project fade-up delay-1">
 					<h3>Moisture Detection</h3>
 					<p>
-						Implemented a moisture detection pipeline that processes raw inputs,
+						Implemented a sensing-oriented pipeline that processes raw inputs,
 						applies threshold logic, and improves signal reliability for decision support.
 					</p>
 					<div class="project-tech">
 						<span>Python</span>
+						<span>Signal Logic</span>
 						<span>Detection</span>
 						<span>IoT/ML Ideas</span>
 					</div>
 					<div class="project-spec">
+						<p><strong>Tech Stack:</strong> Python, sensor input handling, normalization logic, threshold evaluation</p>
 						<p><strong>Architecture:</strong> Sensor Input -> Signal Normalization -> Threshold Logic -> Monitoring Dashboard</p>
-						<p><strong>Challenge Solved:</strong> Improved reliability by reducing false detections from unstable inputs.</p>
+						<p><strong>Key Challenge:</strong> Improved reliability by reducing false detections caused by unstable sensor readings.</p>
+						<p><strong>Outcome:</strong> Made detection outputs more stable and easier to reason about for monitoring-oriented use cases.</p>
 					</div>
 					<div class="project-actions">
 						<a href="https://github.com/yashsiwacha/moisture-detection" target="_blank" rel="noopener noreferrer">View on GitHub</a>
@@ -1824,6 +1881,7 @@
 				<p>Email: yashsiwach07@gmail.com | Phone: +91 9812540101</p>
 				<div class="contact-meta">
 					<a class="social-link" href="https://github.com/yashsiwacha" target="_blank" rel="noopener noreferrer">GitHub</a>
+					<a class="social-link" href="https://www.linkedin.com/in/yashsiwacha/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 					<a class="social-link" href="https://github.com/yashsiwacha?tab=repositories" target="_blank" rel="noopener noreferrer">Repositories</a>
 					<a class="social-link" href="https://leetcode.com/u/YashSiwachA/" target="_blank" rel="noopener noreferrer">LeetCode</a>
 					<a class="social-link" href="mailto:yashsiwach07@gmail.com">Email</a>
