@@ -820,7 +820,7 @@
 			margin-top: 12px;
 		}
 		
-		.note-section {
+		.message-section {
 			display: grid;
 			grid-template-columns: 1fr;
 			gap: 14px;
@@ -828,30 +828,30 @@
 			border-top: 1px dashed var(--line);
 		}
 		
-		.note-form {
+		.message-form {
 			display: grid;
 			gap: 12px;
 		}
 		
-		.note-grid {
+		.message-grid {
 			display: grid;
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 			gap: 12px;
 		}
 		
-		.note-field {
+		.message-field {
 			display: grid;
 			gap: 6px;
 		}
 		
-		.note-field label {
+		.message-field label {
 			font-size: 0.88rem;
 			font-weight: 700;
 			color: var(--ink);
 		}
 		
-		.note-field input,
-		.note-field textarea {
+		.message-field input,
+		.message-field textarea {
 			width: 100%;
 			font: inherit;
 			color: var(--ink);
@@ -861,35 +861,35 @@
 			padding: 10px 12px;
 		}
 		
-		.note-field textarea {
+		.message-field textarea {
 			min-height: 132px;
 			resize: vertical;
 		}
 		
-		.note-field input:focus,
-		.note-field textarea:focus {
+		.message-field input:focus,
+		.message-field textarea:focus {
 			outline: 2px solid rgba(12, 122, 106, 0.2);
 			outline-offset: 1px;
 			border-color: var(--brand);
 		}
 		
-		.note-actions {
+		.message-actions {
 			display: flex;
 			align-items: center;
 			gap: 12px;
 			flex-wrap: wrap;
 		}
 		
-		.note-status {
+		.message-status {
 			font-size: 0.9rem;
 			font-weight: 700;
 		}
 		
-		.note-status.success {
+		.message-status.success {
 			color: var(--brand);
 		}
 		
-		.note-status.error {
+		.message-status.error {
 			color: #b42318;
 		}
 
@@ -1185,7 +1185,7 @@
 				grid-template-columns: 1fr;
 			}
 			
-			.note-grid {
+			.message-grid {
 				grid-template-columns: 1fr;
 			}
 
@@ -1782,8 +1782,8 @@
 			</div>
 		</section>
 
-		<section id="engineering-notes">
-			<h2 class="section-title fade-up">Engineering Notes</h2>
+		<section id="engineering-insights">
+			<h2 class="section-title fade-up">Engineering Insights</h2>
 			<div class="insights-grid">
 				<article class="insight-card fade-up delay-1">
 					<h3>How Redis reduces latency in distributed systems</h3>
@@ -1816,30 +1816,30 @@
 			<a href="YashResume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
 		</section>
 
-		<section id="note" class="note-section fade-up">
+		<section id="direct-message" class="message-section fade-up">
 			<h2 class="section-title">Direct Message</h2>
 			<article class="panel">
-				<h3>Message Me Directly</h3>
+				<h3>Contact Me Directly</h3>
 				<p>Send a direct message from this website. Your message will be delivered to my email inbox.</p>
-				<form id="noteForm" class="note-form" novalidate>
-					<div class="note-grid">
-						<div class="note-field">
-							<label for="noteName">Your Name</label>
-							<input id="noteName" name="name" type="text" autocomplete="name" required />
+				<form id="directMessageForm" class="message-form" novalidate>
+					<div class="message-grid">
+						<div class="message-field">
+							<label for="directMessageName">Your Name</label>
+							<input id="directMessageName" name="name" type="text" autocomplete="name" required />
 						</div>
-						<div class="note-field">
-							<label for="noteEmail">Your Email</label>
-							<input id="noteEmail" name="email" type="email" autocomplete="email" required />
+						<div class="message-field">
+							<label for="directMessageEmail">Your Email</label>
+							<input id="directMessageEmail" name="email" type="email" autocomplete="email" required />
 						</div>
 					</div>
-					<div class="note-field">
-						<label for="noteMessage">Message</label>
-						<textarea id="noteMessage" name="message" required></textarea>
+					<div class="message-field">
+						<label for="directMessageBody">Message</label>
+						<textarea id="directMessageBody" name="message" required></textarea>
 					</div>
 					<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-					<div class="note-actions">
-						<button id="noteSubmit" class="btn btn-primary" type="submit">Send Message</button>
-						<p id="noteStatus" class="note-status" aria-live="polite"></p>
+					<div class="message-actions">
+						<button id="directMessageSubmit" class="btn btn-primary" type="submit">Send Message</button>
+						<p id="directMessageStatus" class="message-status" aria-live="polite"></p>
 					</div>
 				</form>
 			</article>
@@ -1885,9 +1885,9 @@
 		const trackedSections = Array.from(navLinks)
 			.map((link) => document.getElementById(link.getAttribute("href").slice(1)))
 			.filter(Boolean);
-		const noteForm = document.getElementById("noteForm");
-		const noteSubmit = document.getElementById("noteSubmit");
-		const noteStatus = document.getElementById("noteStatus");
+		const directMessageForm = document.getElementById("directMessageForm");
+		const directMessageSubmit = document.getElementById("directMessageSubmit");
+		const directMessageStatus = document.getElementById("directMessageStatus");
 		const animatedItems = document.querySelectorAll(".fade-up");
 		const shapeA = document.querySelector(".shape-a");
 		const shapeB = document.querySelector(".shape-b");
@@ -2086,19 +2086,19 @@
 
 		setActiveNavLink();
 		
-		if (noteForm && noteSubmit && noteStatus) {
-			noteForm.addEventListener("submit", async (event) => {
+		if (directMessageForm && directMessageSubmit && directMessageStatus) {
+			directMessageForm.addEventListener("submit", async (event) => {
 				event.preventDefault();
 		
-				if (!noteForm.reportValidity()) {
+				if (!directMessageForm.reportValidity()) {
 					return;
 				}
 		
-				noteStatus.textContent = "Sending your message...";
-				noteStatus.className = "note-status";
-				noteSubmit.disabled = true;
+				directMessageStatus.textContent = "Sending your message...";
+				directMessageStatus.className = "message-status";
+				directMessageSubmit.disabled = true;
 		
-				const formData = new FormData(noteForm);
+				const formData = new FormData(directMessageForm);
 				formData.append("_subject", "New Portfolio Direct Message");
 				formData.append("_captcha", "false");
 		
@@ -2115,14 +2115,14 @@
 						throw new Error("Failed to send message.");
 					}
 		
-					noteForm.reset();
-					noteStatus.textContent = "Message sent successfully. I will check and reply by email.";
-					noteStatus.className = "note-status success";
+					directMessageForm.reset();
+					directMessageStatus.textContent = "Message sent successfully. I will check and reply by email.";
+					directMessageStatus.className = "message-status success";
 				} catch (error) {
-					noteStatus.textContent = "Could not send your message right now. Please try again or email me directly.";
-					noteStatus.className = "note-status error";
+					directMessageStatus.textContent = "Could not send your message right now. Please try again or email me directly.";
+					directMessageStatus.className = "message-status error";
 				} finally {
-					noteSubmit.disabled = false;
+					directMessageSubmit.disabled = false;
 				}
 			});
 		}
