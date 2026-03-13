@@ -1810,33 +1810,36 @@
 					<a class="social-link" href="mailto:yashsiwach07@gmail.com">Email</a>
 					<a class="social-link" href="tel:+919812540101">Call</a>
 				</div>
-				<article class="panel fade-up" style="margin-top: 16px;">
-					<h3>Send a Note</h3>
-					<p>Share a quick note directly from this website. Your message will be delivered to my email inbox.</p>
-					<form id="noteForm" class="note-form" novalidate>
-						<div class="note-grid">
-							<div class="note-field">
-								<label for="noteName">Your Name</label>
-								<input id="noteName" name="name" type="text" autocomplete="name" required />
-							</div>
-							<div class="note-field">
-								<label for="noteEmail">Your Email</label>
-								<input id="noteEmail" name="email" type="email" autocomplete="email" required />
-							</div>
-						</div>
-						<div class="note-field">
-							<label for="noteMessage">Message</label>
-							<textarea id="noteMessage" name="message" required></textarea>
-						</div>
-						<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-						<div class="note-actions">
-							<button id="noteSubmit" class="btn btn-primary" type="submit">Send Note</button>
-							<p id="noteStatus" class="note-status" aria-live="polite"></p>
-						</div>
-					</form>
-				</article>
 			</div>
 			<a href="YashResume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
+		</section>
+
+		<section id="note" class="note-section fade-up">
+			<article class="panel">
+				<h3>Send a Note</h3>
+				<p>Share a quick note directly from this website. Your message will be delivered to my email inbox.</p>
+				<form id="noteForm" class="note-form" novalidate>
+					<div class="note-grid">
+						<div class="note-field">
+							<label for="noteName">Your Name</label>
+							<input id="noteName" name="name" type="text" autocomplete="name" required />
+						</div>
+						<div class="note-field">
+							<label for="noteEmail">Your Email</label>
+							<input id="noteEmail" name="email" type="email" autocomplete="email" required />
+						</div>
+					</div>
+					<div class="note-field">
+						<label for="noteMessage">Message</label>
+						<textarea id="noteMessage" name="message" required></textarea>
+					</div>
+					<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+					<div class="note-actions">
+						<button id="noteSubmit" class="btn btn-primary" type="submit">Send Note</button>
+						<p id="noteStatus" class="note-status" aria-live="polite"></p>
+					</div>
+				</form>
+			</article>
 		</section>
 	</main>
 
