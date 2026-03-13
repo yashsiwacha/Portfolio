@@ -1817,10 +1817,10 @@
 		</section>
 
 		<section id="note" class="note-section fade-up">
-			<h2 class="section-title">Send a Note</h2>
+			<h2 class="section-title">Direct Message</h2>
 			<article class="panel">
 				<h3>Message Me Directly</h3>
-				<p>Share a quick note directly from this website. Your message will be delivered to my email inbox.</p>
+				<p>Send a direct message from this website. Your message will be delivered to my email inbox.</p>
 				<form id="noteForm" class="note-form" novalidate>
 					<div class="note-grid">
 						<div class="note-field">
@@ -1838,7 +1838,7 @@
 					</div>
 					<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 					<div class="note-actions">
-						<button id="noteSubmit" class="btn btn-primary" type="submit">Send Note</button>
+						<button id="noteSubmit" class="btn btn-primary" type="submit">Send Message</button>
 						<p id="noteStatus" class="note-status" aria-live="polite"></p>
 					</div>
 				</form>
@@ -2094,12 +2094,12 @@
 					return;
 				}
 		
-				noteStatus.textContent = "Sending your note...";
+				noteStatus.textContent = "Sending your message...";
 				noteStatus.className = "note-status";
 				noteSubmit.disabled = true;
 		
 				const formData = new FormData(noteForm);
-				formData.append("_subject", "New Portfolio Note from Website");
+				formData.append("_subject", "New Portfolio Direct Message");
 				formData.append("_captcha", "false");
 		
 				try {
@@ -2112,14 +2112,14 @@
 					});
 		
 					if (!response.ok) {
-						throw new Error("Failed to send note.");
+						throw new Error("Failed to send message.");
 					}
 		
 					noteForm.reset();
-					noteStatus.textContent = "Note sent successfully. I will check and reply by email.";
+					noteStatus.textContent = "Message sent successfully. I will check and reply by email.";
 					noteStatus.className = "note-status success";
 				} catch (error) {
-					noteStatus.textContent = "Could not send note right now. Please try again or email me directly.";
+					noteStatus.textContent = "Could not send your message right now. Please try again or email me directly.";
 					noteStatus.className = "note-status error";
 				} finally {
 					noteSubmit.disabled = false;
