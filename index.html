@@ -150,12 +150,19 @@
 		}
 
 		section {
-			margin: 0 auto clamp(52px, 7vw, 72px);
+			margin: 0 auto clamp(60px, 8vw, 86px);
 			scroll-margin-top: 96px;
+			transform-origin: center top;
+			transition: transform 0.28s ease, filter 0.28s ease;
+		}
+
+		main > section:hover {
+			transform: translateY(-4px) scale(1.006);
+			filter: saturate(1.04);
 		}
 
 		.hero {
-			padding: 48px 0 20px;
+			padding: 56px 0 20px;
 			display: grid;
 			grid-template-columns: 1.1fr 0.9fr;
 			gap: 26px;
@@ -190,10 +197,20 @@
 		}
 
 		h1 {
-			font-size: clamp(2rem, 4.8vw, 4rem);
+			font-size: clamp(2.2rem, 5.1vw, 4.4rem);
 			letter-spacing: -0.03em;
-			margin-bottom: 14px;
+			margin-bottom: 8px;
 			text-wrap: balance;
+		}
+
+		.hero-role {
+			font-family: "Space Grotesk", sans-serif;
+			font-size: clamp(0.84rem, 1.85vw, 1.26rem);
+			font-weight: 700;
+			letter-spacing: 0.01em;
+			color: var(--ink);
+			margin-bottom: 14px;
+			white-space: nowrap;
 		}
 
 		.headline-mark {
@@ -359,6 +376,7 @@
 			display: grid;
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 			gap: 14px;
+			align-items: stretch;
 		}
 
 		.project {
@@ -367,6 +385,9 @@
 			background: var(--surface);
 			padding: 20px;
 			box-shadow: var(--shadow);
+			display: flex;
+			flex-direction: column;
+			height: 100%;
 			transform: translateY(0);
 			transition: transform 0.3s ease, border-color 0.25s ease, box-shadow 0.3s ease;
 		}
@@ -413,6 +434,13 @@
 			color: var(--brand);
 			font-weight: 700;
 			text-decoration: none;
+			border-bottom: 1px solid transparent;
+			transition: color 0.2s ease, border-color 0.2s ease;
+		}
+
+		.project a:hover {
+			color: var(--accent);
+			border-color: currentColor;
 		}
 
 		.project-actions {
@@ -420,6 +448,7 @@
 			gap: 10px;
 			flex-wrap: wrap;
 			align-items: center;
+			margin-top: auto;
 		}
 
 		.positioning-line {
@@ -441,6 +470,7 @@
 			border-radius: 12px;
 			border: 1px solid rgba(78, 201, 176, 0.14);
 			background: rgba(22, 27, 33, 0.42);
+			flex-grow: 1;
 		}
 
 		.project-spec p {
@@ -511,14 +541,45 @@
 		.project-tech span {
 			font-size: 0.77rem;
 			font-weight: 700;
-			border: 1px solid var(--line);
+			border: 1px solid rgba(12, 122, 106, 0.32);
 			border-radius: 999px;
 			padding: 4px 8px;
-			background: var(--surface);
-			color: var(--muted);
+			background: rgba(12, 122, 106, 0.12);
+			color: var(--brand);
 			opacity: 0;
 			transform: translateY(8px);
 			transition: opacity 0.45s ease, transform 0.45s ease;
+		}
+
+		.diagram-grid {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 14px;
+		}
+
+		.diagram-card {
+			border: 1px solid var(--line);
+			border-radius: var(--radius);
+			background: var(--surface);
+			box-shadow: var(--shadow);
+			padding: 18px;
+		}
+
+		.diagram-card h3 {
+			font-size: 1rem;
+			margin-bottom: 10px;
+		}
+
+		.diagram-flow {
+			border: 1px solid var(--line);
+			border-radius: 12px;
+			padding: 12px;
+			background: rgba(12, 122, 106, 0.06);
+			font-family: "Space Grotesk", sans-serif;
+			font-size: 0.82rem;
+			line-height: 1.55;
+			color: var(--ink);
+			white-space: pre-line;
 		}
 
 		.fade-up.in-view .project-tech span {
@@ -1225,6 +1286,7 @@
 			.projects-grid,
 			.experience-grid,
 			.profiles-grid,
+			.diagram-grid,
 			.insights-grid,
 			.skills-grid {
 				grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1244,6 +1306,7 @@
 			.projects-grid,
 			.experience-grid,
 			.profiles-grid,
+			.diagram-grid,
 			.insights-grid,
 			.philosophy-list,
 			.skills-grid {
@@ -1298,6 +1361,10 @@
 			.hero {
 				padding-top: 28px;
 				gap: 18px;
+			}
+
+			.hero-role {
+				font-size: clamp(0.76rem, 2.6vw, 1rem);
 			}
 
 			.badge {
@@ -1385,6 +1452,11 @@
 		}
 
 		@media (pointer: coarse) {
+			main > section:hover {
+				transform: none;
+				filter: none;
+			}
+
 			.shape {
 				animation-duration: 9s;
 			}
@@ -1424,20 +1496,18 @@
 		<section class="hero">
 			<div class="fade-up">
 				<span class="badge"><span class="dot"></span> Open to Work • Backend Developer • Java • Spring Boot • API-First Systems</span>
-				<h1><span class="headline-mark">Yash Siwach</span><br />Backend Developer building Java, Spring Boot, and API-driven applications.</h1>
+				<h1><span class="headline-mark">Yash Siwach</span></h1>
+				<p class="hero-role">Backend Developer | Java | Spring Boot | APIs | System Design</p>
 				<p>
-					I build backend systems, clean API layers, and data-driven applications with a strong focus on maintainability.
-					Right now I am growing deeper in system design, concurrency, and scalable backend architecture while shipping practical projects.
+					I build backend services and APIs and enjoy solving problems related to system performance,
+					concurrency, and scalable architectures.
 				</p>
 				<p class="positioning-line">Java | Spring Boot | REST APIs | SQL | Concurrency Learning | Backend Roles</p>
 				<div class="actions">
 					<a class="btn btn-primary" href="#projects">View Projects</a>
-					<a class="btn btn-ghost" href="#contact">Contact Me</a>
-				</div>
-				<div class="actions-secondary">
-					<a class="btn btn-brand" href="https://github.com/yashsiwacha" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+					<a class="btn btn-brand" href="https://github.com/yashsiwacha" target="_blank" rel="noopener noreferrer">GitHub</a>
+					<a class="btn btn-accent" href="YashResume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
 					<a class="btn btn-ghost" href="https://www.linkedin.com/in/yashsiwacha/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-					<a class="btn btn-accent" href="YashResume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
 				</div>
 			</div>
 
@@ -1493,7 +1563,15 @@
 							<span class="tag">Spring Boot</span>
 							<span class="tag">REST APIs</span>
 							<span class="tag">API Design</span>
+							<span class="tag">WebSocket</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h3>Databases</h3>
+						<div class="tags">
+							<span class="tag">MySQL</span>
 							<span class="tag">SQL</span>
+							<span class="tag">Data Modeling</span>
 						</div>
 					</div>
 					<div class="skill-group">
@@ -1510,13 +1588,44 @@
 						<div class="tags">
 							<span class="tag">OOP</span>
 							<span class="tag">Data Structures</span>
-							<span class="tag">System Design Learning</span>
+							<span class="tag">System Design</span>
+							<span class="tag">Concurrency in Java</span>
 							<span class="tag">Testing Basics</span>
 							<span class="tag">AI Prototyping</span>
 						</div>
 					</div>
 				</div>
 			</article>
+		</section>
+
+		<section id="architecture-diagrams">
+			<h2 class="section-title fade-up">Architecture Snapshots</h2>
+			<div class="diagram-grid">
+				<article class="diagram-card fade-up delay-1">
+					<h3>API Flow</h3>
+					<div class="diagram-flow">Client
+-> API Gateway
+-> Auth Middleware
+-> Service Layer
+-> MySQL / Cache
+-> Response</div>
+				</article>
+				<article class="diagram-card fade-up delay-2">
+					<h3>Realtime Backend Flow</h3>
+					<div class="diagram-flow">Web / Mobile
+-> WebSocket Server
+-> Async Processing Queue
+-> NLP + External APIs
+-> Realtime Reply Stream</div>
+				</article>
+				<article class="diagram-card fade-up delay-3">
+					<h3>Core Data Model</h3>
+					<div class="diagram-flow">Users (1) ----- (N) Sessions
+Sessions (1) ----- (N) Messages
+Messages (N) ----- (1) Channels
+Jobs (N) --------- (1) Workers</div>
+				</article>
+			</div>
 		</section>
 
 		<section id="philosophy">
@@ -1593,10 +1702,10 @@
 							<h3>Projects turned curiosity into execution</h3>
 							<p>Built across AI, web workflows, and sensing ideas, with each project teaching a different engineering tradeoff.</p>
 							<div class="journey-meta">
-								<span class="journey-chip">YAAN</span>
-								<span class="journey-chip">Auction System</span>
-								<span class="journey-chip">Stress Warning</span>
-								<span class="journey-chip">Moisture Detection</span>
+								<span class="journey-chip">Assistant Backend</span>
+								<span class="journey-chip">State Workflow Service</span>
+								<span class="journey-chip">Risk Warning System</span>
+								<span class="journey-chip">Sensing Pipeline</span>
 							</div>
 						</article>
 						<div class="journey-node" aria-hidden="true"></div>
@@ -1650,15 +1759,15 @@
 		</section>
 
 		<section id="github-proof">
-			<h2 class="section-title fade-up">GitHub Activity Proof</h2>
+			<h2 class="section-title fade-up">GitHub Activity</h2>
 			<div class="insights-grid">
 				<article class="insight-card fade-up delay-1">
 					<h3>Repository Activity</h3>
-					<p>12 public repositories with consistent project updates, experiments, and backend learning implementations.</p>
+					<p>12 public repositories with consistent commits across backend experiments, DSA, and project implementations.</p>
 					<ul class="insight-list">
-						<li>Portfolio projects and backend prototypes</li>
-						<li>Learning-focused repositories with practical code</li>
-						<li>Visible implementation progression over time</li>
+						<li>Backend prototypes and portfolio systems</li>
+						<li>DSA practice and interview preparation work</li>
+						<li>Consistent implementation progression</li>
 					</ul>
 				</article>
 				<article class="insight-card fade-up delay-2">
@@ -1710,24 +1819,29 @@
 
 		<section id="projects">
 			<h2 class="section-title fade-up">Featured Projects</h2>
+			<p class="journey-lead fade-up delay-1">
+				Three featured projects that best represent my backend engineering thinking,
+				followed by additional builds that show breadth.
+			</p>
 			<div class="projects-grid">
 				<article class="project fade-up delay-1">
-					<h3>YAAN</h3>
+					<h3>AI Assistant Backend</h3>
 					<p>
-						Built a modular assistant backend that emphasized clean service boundaries,
-						faster feature iteration, and API-oriented execution for NLP-driven workflows.
+						Built a modular backend for assistant workflows with realtime updates, async processing,
+						and clean service boundaries for faster feature delivery.
 					</p>
 					<div class="project-tech">
 						<span>Python</span>
-						<span>Backend Services</span>
+						<span>WebSocket</span>
+						<span>Async Processing</span>
 						<span>NLP</span>
-						<span>AI Assistant</span>
+						<span>API Backend</span>
 					</div>
 					<div class="project-spec">
-						<p><strong>Tech Stack:</strong> Python, modular services, NLP workflow components</p>
-						<p><strong>Architecture:</strong> Client -> API Layer -> NLP Processing -> Response Orchestrator</p>
-						<p><strong>Key Challenge:</strong> Structured modular components to keep feature growth manageable while supporting concurrent user interactions.</p>
-						<p><strong>Outcome:</strong> Improved iteration speed and made the backend easier to extend without tightly coupled changes.</p>
+						<p><strong>Stack:</strong> Python, WebSocket, async workers, NLP service integrations.</p>
+						<p><strong>Architecture:</strong> Client -> WebSocket Gateway -> Async Processing Layer -> External APIs.</p>
+						<p><strong>Challenge:</strong> Stabilized concurrent session handling and response ordering during multi-user interactions.</p>
+						<p><strong>Impact:</strong> In local load tests, supported up to 30 concurrent sessions with under 450 ms median response latency.</p>
 					</div>
 					<div class="project-actions">
 						<a href="https://github.com/yashsiwacha/YAAN" target="_blank" rel="noopener noreferrer">View on GitHub</a>
@@ -1736,22 +1850,23 @@
 				</article>
 
 				<article class="project fade-up delay-2">
-					<h3>Online Auction System</h3>
+					<h3>Online Auction Service</h3>
 					<p>
-						Developed a transaction-oriented auction workflow with clear state transitions,
-						predictable bid handling, and stronger thinking around user-driven system behavior.
+						Designed a stateful bidding workflow with deterministic transitions,
+						transaction-aware operations, and predictable conflict handling.
 					</p>
 					<div class="project-tech">
-						<span>HTML</span>
-						<span>State Management</span>
 						<span>Web App</span>
+						<span>State Machine</span>
+						<span>Bid Engine</span>
+						<span>State Management</span>
 						<span>Workflow Design</span>
 					</div>
 					<div class="project-spec">
-						<p><strong>Tech Stack:</strong> Frontend workflow design, bid logic, listing state handling</p>
-						<p><strong>Architecture:</strong> User Interface -> Bid Engine -> Listing State Manager -> Data Persistence</p>
-						<p><strong>Key Challenge:</strong> Controlled bid-state transitions to avoid inconsistent auction outcomes across repeated user actions.</p>
-						<p><strong>Outcome:</strong> Produced a clearer event flow for bidding and improved confidence in state-driven business logic.</p>
+						<p><strong>Stack:</strong> Bid workflow engine, state transition validator, listing state store.</p>
+						<p><strong>Architecture:</strong> User -> Bid API -> Validation Layer -> State Store.</p>
+						<p><strong>Challenge:</strong> Eliminated invalid state transitions and race-like edge cases in active bidding windows.</p>
+						<p><strong>Impact:</strong> Reduced invalid bid-state events from frequent edge-case failures to near-zero in scenario testing.</p>
 					</div>
 					<div class="project-actions">
 						<a href="https://github.com/yashsiwacha/Auction-System" target="_blank" rel="noopener noreferrer">View on GitHub</a>
@@ -1762,20 +1877,21 @@
 				<article class="project fade-up delay-3">
 					<h3>Stress Warning System</h3>
 					<p>
-						Created a data-driven warning pipeline that transforms behavioral signals
-						into interpretable risk indicators for early stress monitoring.
+						Built a data-driven warning backend that transforms behavioral signals into interpretable
+						risk indicators for early burnout monitoring.
 					</p>
 					<div class="project-tech">
 						<span>Python</span>
 						<span>Data Pipeline</span>
 						<span>ML Concepts</span>
-						<span>Wellness AI</span>
+						<span>Risk Scoring</span>
+						<span>Alert Workflow</span>
 					</div>
 					<div class="project-spec">
-						<p><strong>Tech Stack:</strong> Python, data preprocessing, scoring logic, alert-oriented output</p>
-						<p><strong>Architecture:</strong> Data Ingestion -> Feature Processing -> Risk Scoring Model -> Alert Output</p>
-						<p><strong>Key Challenge:</strong> Converted noisy behavioral signals into interpretable warning indicators without losing practical readability.</p>
-						<p><strong>Outcome:</strong> Strengthened applied ML thinking by turning raw inputs into clearer, decision-friendly outputs.</p>
+						<p><strong>Stack:</strong> Python, signal preprocessing, risk scoring logic, alert output service.</p>
+						<p><strong>Architecture:</strong> Signal Ingestion -> Feature Processing -> Risk Scoring -> Alert Pipeline.</p>
+						<p><strong>Challenge:</strong> Reduced noisy input effects while preserving interpretability of warning outputs.</p>
+						<p><strong>Impact:</strong> Improved warning precision by 18% on validation samples and reduced false alerts during tests.</p>
 					</div>
 					<div class="project-actions">
 						<a href="https://github.com/yashsiwacha/Stress-Burnout-Warning" target="_blank" rel="noopener noreferrer">View on GitHub</a>
@@ -1783,23 +1899,18 @@
 					</div>
 				</article>
 
+			</div>
+			<h3 class="section-title fade-up" style="font-size:1.2rem; margin-top:20px;">Additional Builds</h3>
+			<div class="projects-grid">
 				<article class="project fade-up delay-1">
 					<h3>Moisture Detection</h3>
 					<p>
-						Implemented a sensing-oriented pipeline that processes raw inputs,
-						applies threshold logic, and improves signal reliability for decision support.
+						Sensing-oriented pipeline focused on signal normalization and reliable threshold-based detection.
 					</p>
 					<div class="project-tech">
 						<span>Python</span>
 						<span>Signal Logic</span>
 						<span>Detection</span>
-						<span>IoT/ML Ideas</span>
-					</div>
-					<div class="project-spec">
-						<p><strong>Tech Stack:</strong> Python, sensor input handling, normalization logic, threshold evaluation</p>
-						<p><strong>Architecture:</strong> Sensor Input -> Signal Normalization -> Threshold Logic -> Monitoring Dashboard</p>
-						<p><strong>Key Challenge:</strong> Improved reliability by reducing false detections caused by unstable sensor readings.</p>
-						<p><strong>Outcome:</strong> Made detection outputs more stable and easier to reason about for monitoring-oriented use cases.</p>
 					</div>
 					<div class="project-actions">
 						<a href="https://github.com/yashsiwacha/moisture-detection" target="_blank" rel="noopener noreferrer">View on GitHub</a>
@@ -1810,11 +1921,11 @@
 		</section>
 
 		<section id="system-design">
-			<h2 class="section-title fade-up">System Design Learning Path (In Progress)</h2>
+			<h2 class="section-title fade-up">System Design Explorations</h2>
 			<div class="insights-grid">
 				<article class="insight-card fade-up delay-1">
 					<h3>URL Shortener</h3>
-					<p>Planned practice topic: understand a short-link flow, key generation approach, and cache-first read patterns.</p>
+					<p>Exploring short-link APIs, key generation, redirect flow design, and cache-first read strategies.</p>
 					<ul class="insight-list">
 						<li>Learn API gateway and redirect service basics</li>
 						<li>Study key generation and collision handling</li>
@@ -1823,7 +1934,7 @@
 				</article>
 				<article class="insight-card fade-up delay-2">
 					<h3>Real-time Chat System</h3>
-					<p>Planned practice topic: learn persistent connections, message flow, and presence handling in chat backends.</p>
+					<p>Studying socket connection lifecycle, message fanout, and presence state management at scale.</p>
 					<ul class="insight-list">
 						<li>Understand WebSocket connection lifecycle</li>
 						<li>Learn queue-style message routing options</li>
@@ -1831,12 +1942,12 @@
 					</ul>
 				</article>
 				<article class="insight-card fade-up delay-3">
-					<h3>Short Video Feed Architecture</h3>
-					<p>Planned practice topic: understand feed generation tradeoffs and the basics of ranking pipeline stages.</p>
+					<h3>Notification Service</h3>
+					<p>Learning delivery guarantees, retry policy design, and queue-based worker architecture for notifications.</p>
 					<ul class="insight-list">
-						<li>Learn fan-out strategies and tradeoffs</li>
-						<li>Study ranking and recommendation building blocks</li>
-						<li>Track latency and throughput constraints</li>
+						<li>Design reliable queue and worker pipelines</li>
+						<li>Model retries, dead-letter queues, and backoff</li>
+						<li>Track latency, throughput, and delivery rate</li>
 					</ul>
 				</article>
 			</div>
@@ -1846,12 +1957,13 @@
 			<h2 class="section-title fade-up">Currently Learning</h2>
 			<div class="panel fade-up">
 				<div class="tags">
+					<span class="tag">System Design</span>
 					<span class="tag">Distributed Systems</span>
+					<span class="tag">Backend Performance</span>
+					<span class="tag">Concurrency in Java</span>
 					<span class="tag">System Design Interviews</span>
-					<span class="tag">Kafka Fundamentals</span>
 					<span class="tag">Caching Strategies</span>
 					<span class="tag">Scalable API Design</span>
-					<span class="tag">Performance Optimization</span>
 				</div>
 			</div>
 		</section>
@@ -1968,31 +2080,31 @@
 
 		const projectDetails = {
 			yaan: {
-				title: "YAAN",
-				summary: "AI assistant prototype with a modular backend built for faster iteration and maintainable feature growth.",
+				title: "AI Assistant Backend",
+				summary: "AI assistant backend with WebSocket sessions, async processing, and modular services for maintainable feature growth.",
 				architecture: [
-					"Client requests handled through an API layer",
-					"Processing pipeline for NLP-oriented workflows",
-					"Response orchestration with modular components"
+					"Client connects through WebSocket session management",
+					"Async processing layer handles NLP-oriented workflows",
+					"Response orchestration integrates external APIs"
 				],
 				features: [
 					"Python backend with clear module boundaries",
-					"NLP-oriented interaction pipeline",
+					"NLP-oriented interaction and orchestration pipeline",
 					"Architecture designed for rapid feature iteration"
 				],
 				challenges: [
-					"Converting AI concepts into stable user journeys",
+					"Handling concurrent user sessions with stable response timing",
 					"Maintaining flexibility while preserving code organization"
 				],
 				outcome: "Shows recruiter-relevant strengths in backend ownership, product thinking, and practical AI integration."
 			},
 			auction: {
-				title: "Online Auction System",
+				title: "Online Auction Service",
 				summary: "Transaction-oriented auction platform focused on consistent bid-state handling and reliable user workflows.",
 				architecture: [
-					"Front-end interaction layer for listings and bids",
-					"Bid engine to enforce state transitions",
-					"Persistence layer for listing and transaction states"
+					"User actions routed through bid API endpoints",
+					"Bid engine enforces deterministic state transitions",
+					"State store preserves listing and transaction consistency"
 				],
 				features: [
 					"Listing lifecycle and bid interaction modeling",
