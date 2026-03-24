@@ -1820,10 +1820,36 @@ Jobs (N) --------- (1) Workers</div>
 		<section id="projects">
 			<h2 class="section-title fade-up">Featured Projects</h2>
 			<p class="journey-lead fade-up delay-1">
-				Three featured projects that best represent my backend engineering thinking,
+				Featured projects that best represent my backend engineering thinking,
 				followed by additional builds that show breadth.
 			</p>
 			<div class="projects-grid">
+				<article class="project fade-up delay-1">
+					<h3>Real-Time Notification System</h3>
+					<p>
+						Production-oriented notification backend with reliable delivery, retries, dead-letter handling,
+						idempotency, and observability.
+					</p>
+					<div class="project-tech">
+						<span>Java 17</span>
+						<span>Spring Boot</span>
+						<span>WebSocket + STOMP</span>
+						<span>Kafka</span>
+						<span>Redis</span>
+						<span>PostgreSQL</span>
+					</div>
+					<div class="project-spec">
+						<p><strong>Stack:</strong> Java 17, Spring Boot, Kafka, Redis, PostgreSQL, Flyway, Prometheus.</p>
+						<p><strong>Architecture:</strong> Auth/Rate Limit/Idempotency -> Persist -> Kafka/Redis Queue -> WebSocket Delivery.</p>
+						<p><strong>Challenge:</strong> Ensured resilient delivery under spikes with retries, dead-letter transitions, and deduped requests.</p>
+						<p><strong>Impact:</strong> Built a production-oriented notification pipeline with observability and load-test readiness.</p>
+					</div>
+					<div class="project-actions">
+						<a href="https://github.com/yashsiwacha/Real-Time-Notification-System" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+						<button class="details-btn" type="button" data-project="notification">Details</button>
+					</div>
+				</article>
+
 				<article class="project fade-up delay-1">
 					<h3>AI Assistant Backend</h3>
 					<p>
@@ -1917,6 +1943,7 @@ Jobs (N) --------- (1) Workers</div>
 						<button class="details-btn" type="button" data-project="moisture">Details</button>
 					</div>
 				</article>
+
 			</div>
 		</section>
 
@@ -2154,6 +2181,26 @@ Jobs (N) --------- (1) Workers</div>
 					"Converting raw data into stable moisture indicators"
 				],
 				outcome: "Shows ability to bridge software engineering, signal processing logic, and data-driven sensing applications."
+			},
+			notification: {
+				title: "Real-Time Notification System",
+				summary: "Spring Boot notification service delivering resilient real-time updates with retry, idempotency, dead-letter handling, and metrics-first operations.",
+				architecture: [
+					"POST /api/notifications validates auth, rate limit, and idempotency",
+					"Events are persisted and published to Kafka with Redis-backed fallback mode",
+					"WebSocket delivery updates state to DELIVERED, RETRY_SCHEDULED, or DEAD_LETTER"
+				],
+				features: [
+					"WebSocket + STOMP realtime delivery via /user/queue/notifications",
+					"JWT + RBAC secured APIs with ADMIN/USER roles",
+					"Redis token-bucket rate limiter and idempotent create flow",
+					"PostgreSQL persistence, Flyway migrations, Prometheus and Grafana support"
+				],
+				challenges: [
+					"Ensuring reliable delivery under transient failures with exponential backoff",
+					"Preventing duplicate notification creation while keeping throughput high"
+				],
+				outcome: "Demonstrates production-ready backend engineering with reliability patterns, observability, and high-load readiness."
 			}
 		};
 
